@@ -1,0 +1,626 @@
+body {
+  font-family: Arial, sans-serif,;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+/* Background Container */
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden; /* Prevents scrollbars */
+  background-color: #013B68; /* Blue background */
+  padding-bottom: 30px;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Main Rectangular Box */
+.content-box {
+  position: relative;
+  width: 1200px;
+  height: 678px;
+  margin: auto;
+  background-color: #F4F4F4;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  top:50px;
+  margin-bottom: 30px; 
+  padding-bottom: 30px;
+}
+
+/* Main Heading Container */
+.main-heading {
+  position: absolute;
+  top: 0; /* Places the heading at the top */
+  left: 50%; /* Moves content to center horizontally */
+  transform: translateX(-50%); /* Ensures perfect centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px; /* Adjust vertical spacing as needed */
+  z-index: 10;
+}
+
+/* Level Tag */
+.level-tag {
+  position: absolute;
+  top: -20px; /* Slightly above the heading */
+  left:300px;
+  background-color: #0099ff;
+  color: #ffffff;
+  width: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Content */
+.heading-content{
+  text-align: center;
+  margin: 0 auto; /* Center align */
+}
+.heading-content h1 {
+  width: 298px;
+  height:49px;
+  color: #212121;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  align-items: center;
+  padding-left: 120px;
+}
+
+.heading-content p {
+  font-size: 18px;
+  font-weight: 500; /* Medium */
+  color: #4d4d4d; /* Slightly lighter color */
+  margin: 0 auto; /* Center the text */
+  padding-bottom: 10px; /* Adds space below the text */
+  max-width: 700px; /* Keeps it from stretching too far */
+}
+
+.content{
+  padding-left: 50px;
+}
+
+/* Game Layout */
+.game-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+/* Game Container */
+.game-container {
+  max-width: 716px;
+  height: 470px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #D9D9D9;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.game-container h1{
+  color: #B4B4B4;
+}
+/* Moves Left Container */
+.moves-left-container {
+  position: absolute; /* Position relative to the main rectangular box */
+  top: 10px; /*Moves it upward outside the box*/
+  left: 20px; /* Aligns it towards the left */
+  background-color: #ffffff; /* White background for clarity */
+  border: 2px solid #e6e6e6;
+  border-radius: 10px; /* Rounded edges */
+  padding-bottom: 0px;
+  padding: 8px 15px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow */
+  z-index: 10; /* Ensures it stays above other elements */
+}
+
+.moves-left-text {
+  color: #333; /* Text color */
+  font-weight: bold;
+}
+
+.moves-left-text span {
+  color: #007bff; /* Blue for the number */
+}
+
+
+/* Parent container adjustments for circles */
+.circles {
+  margin: 30px auto; /* Center the container */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center;
+  gap: 40px; /* Space between circles */
+  flex-wrap: wrap; /* Ensure responsiveness for smaller screens */
+  padding-bottom: 30px;
+}
+
+/* Circle styling */
+.circle {
+  width: 100px; /* Increase circle size */
+  height: 100px; /* Ensure a square shape */
+  border-radius: 50%; /* Make it circular */
+  border: 6px solid #d7d7d8; /* Border styling */
+  background-color: #f0f0f0; /* Light gray fill */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.circle:hover {
+  transform: scale(1.1); /* Slight enlargement on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .circle {
+    width: 80px; /* Adjust size for smaller screens */
+    height: 80px;
+  }
+  .circles {
+    gap: 20px; /* Reduce gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 60px; /* Smaller size for very small screens */
+    height: 60px;
+  }
+  .circles {
+    gap: 15px;
+  }
+}
+
+/* Palette Container */
+.palette-container {
+  /* position: relative; */
+  width: auto;
+  height: auto;
+  margin: 20px auto; /* Centers it horizontally */
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+/* Palette Colors */
+.palette {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; /* Wrap colors to a new row */
+  padding: 10px;
+  justify-content: center;
+  gap: 20px; /* Space between colors */
+  padding: 5px 10px; /* Padding to keep space from edges */
+  padding: 5px 10px; /* Padding to keep space from edges */
+  max-width: 100%; /* Prevent exceeding container */
+}
+
+.palette-box {
+  width: 646px;
+  height: 137px;
+  background-color: #FFFFFF;
+  border-radius: 30px; /* Rounded corners */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent overflow */
+  padding-bottom: 40px;
+}
+
+.palette-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #bbb6b6; /* Light gray color for the title */
+  margin-bottom: 10px; /* Space between title and colors */
+}
+
+.palette-color {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(254, 252, 252, 0.2); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out;
+}
+
+.palette-color:hover {
+  transform: scale(1.2);
+  border: 3px solid #fafcff;
+}
+
+/* Move Order Box */
+.move-order-box {
+  width: 307px;
+  height: 510.32px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.move-order-header {
+  background-color: #ffd700;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.move-order-content {
+  padding: 10px;
+  overflow-y: auto;
+  height: calc(100% - 50px); /* Account for header height */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.move-order-attempt {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.move-order-attempt:last-child {
+  border-bottom: none;
+}
+
+.move-order-attempt h3 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.move-order-attempt .color-row {
+  display: flex;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.move-order-attempt .color-row .color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Modal General Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px; /* Exact dimensions */
+  height: 412px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+  text-align: center;
+}
+
+.modal.active {
+  display: block;
+}
+
+/* Modal Title */
+.modal-title {
+  color: #0099ff;
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 20px;
+  margin: 20px 0 10px;
+}
+
+/* Modal Text */
+.modal-text {
+  font-size: 90px;
+  font-weight: 900;
+  color: #333;
+  padding: 0 20px;
+  margin-bottom: 30px;
+  padding-bottom: 100px;
+  padding-top: 30px;
+  line-height: 1.6;
+}
+
+/* Buttons Container */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  height: 60px;
+}
+
+.button-right .button-text {
+  font-size: 20px; /* Adjust the font size as desired */
+  font-weight: bold; /* Make it bold for better visibility */
+  color: #ffffff; /* Ensures text is visible */
+  text-align: center; /* Centers the text */
+}
+.button-left .button-text{
+  font-size: 20px; /* Adjust the font size as desired */
+  font-weight: bold; /* Make it bold for better visibility */
+  color: #FE6500; /* Ensures text is visible */
+  text-align: center;
+}
+
+.btn-retry .button-text{
+    font-size: 20px; /* Adjust the font size as desired */
+    font-weight: bold; /* Make it bold for better visibility */
+    text-align: center;
+}
+
+
+/* Left Button - Replay */
+.button-left,
+.button-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-left {
+  background-color: #e5eaf0;
+}
+
+.button-right {
+  background-color: #ff6b00;
+}
+
+.button-left:hover {
+  background-color: #d0d8e2;
+}
+
+.button-right:hover {
+  background-color: #e66000;
+}
+
+
+/*Retry button modal*/
+.btn-retry{
+  background-color: #ff6b00;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-retry .button-text{
+  color: #ffffff;
+}
+
+/* Button Icons and Text */
+.modal-icon {
+  width: 20px; /* Icon size */
+  height: 20px;
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.button-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FE6500;
+}
+
+.button-right .button-text {
+  color: #ffffff;
+}
+
+
+/* Add a Background Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 38, 66, 0.8); /* Semi-transparent dark overlay */
+  z-index: 999; /* Below modal but above everything else */
+  display: none;
+}
+
+.modal-overlay.active {
+  display: block; /* Show overlay when modal is active */
+}
+
+/* New Feature: Skip, Hints, Rules */
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 54px;
+  height: 260px;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.button-box {
+  width: 54px;
+  height: 66px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.button-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Button Hover Effect (Optional: Image Brightness) */
+.button-box:hover .button-img {
+  filter: brightness(1.1); /* Slightly brighten the image on hover */
+}
+
+/*modals for hints,skip,rules*/
+.modal h2 {
+  color: #0099ff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #ff7b00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+  background-color: #e66b00;
+}
+
+
+/* Feedback Section - Submit Button */
+.feedback {
+  position: absolute;
+  bottom: 20px; /* Spacing from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.feedback img {
+  width: 150px; /* Adjust the image size */
+  height: 64.42px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.feedback img:hover {
+  transform: scale(1.1); /* Hover effect */
+}
+
+#feedbackText {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+/* Exit Button Styling */
+.exit-button {
+  position: absolute;
+  top: -10px; /* Moves it slightly above the top edge */
+  right: 50px; /* Moves it slightly outside to the right */
+  width: 108px; /* Set width */
+  height: 64.42px; /* Set height */
+  z-index: 15; /* Ensures it's above other elements */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.exit-button img {
+  width: 100%; /* Ensures the image fits */
+  height: auto;
+  object-fit: contain;
+}
+
+.exit-button:hover {
+  transform: scale(1.05); /* Smooth zoom effect */
+}
+
+/* Exit Modal Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensures it’s visible above everything */
+  display: none;
+}
+
+.modal.active {
+  display: block;
+}
+

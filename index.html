@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decode the Colours</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Background Container -->
+<div class="background-container">
+    <!-- Background Image -->
+  <img src="img/mask-group.png" alt="Background Image" class="background-img">
+
+    <!-- Main Rectangular Box -->
+    <div class="content-box">
+      <div class="content">
+      </div>
+
+          <!-- Main Heading -->
+    <div class="main-heading">
+      <div class="level-tag">
+        <p id="currentLevel">L1</p>
+      </div>
+      <div class="heading-content">
+        <h1>Decode the colors</h1>
+        <p>Each circle has a color to it and you have to fill the circles with the correct colors.</p>
+      </div>
+    </div>
+
+
+      <!-- Exit Button -->
+      <div class="exit-button" id="exitButton">
+        <img src="img/Group 14512.svg" alt="Exit">
+      </div>
+
+      <!-- Exit Modal -->
+      <div class="modal" id="exitModal">
+        <div class="modal-content">
+          <h2>Are you sure?</h2>
+          <p>Do you really want to exit the game?</p>
+          <a href="index.html"><button>Exit</button></a>
+          <button id="exitCloseBtn">Cancel</button>
+        </div>
+      </div>
+
+
+
+      <!-- Moves Left -->
+      <div class="moves-left-container">
+        <p class="moves-left-text">
+          Moves Left: <span id="movesLeft">5</span>
+        </p>
+      </div>
+
+      <div class="game-layout">
+        <!-- Game Container -->
+        <div class="game-container">
+          <h1>Fill the circles with correct colours</h1>        
+
+          <!-- Circles to fill -->
+          <div class="circles" id="circles">
+          </div>
+
+          <!-- Palette Container -->
+          <div class="palette-container">
+
+            <!-- Rectangular Background Box -->
+            <div class="palette-box">
+              <div class="palette-background">
+                <p class="palette-title">Select colour</p>
+                <!-- Palette Colors -->
+                <div class="palette" id="palette"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="feedback" id="feedbackSection">
+          <img id="submitBtn" src="img/Group 24860.svg" alt="submit">
+          <p id="feedbackText"></p>
+        </div>
+        
+        <!-- Move Order Box -->
+        <div class="move-order-box">
+          <div class="move-order-header">
+            <h2>Move Order</h2>
+          </div>
+          <div class="move-order-content" id="moveOrderContent">
+          </div>
+        </div>
+      </div>
+
+      <!-- New Feature: Skip, Hints, Rules -->
+      <div class="button-stack">
+            <!-- Skip Button -->
+            <div class="button-box" id="skipButton">
+              <img src="img/Frame 5.svg" alt="Skip" class="button-img">
+            </div>
+
+            <!-- Hints Button -->
+            <div class="button-box" id="hintsButton">
+              <img src="img/Frame 4.svg" alt="Hints" class="button-img">
+            </div>
+
+            <!-- Rules Button -->
+            <div class="button-box" id="rulesButton">
+              <img src="img/Frame 3.svg" alt="Rules" class="button-img">
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modals for hints,skip and rules-  -->
+
+      <!-- Skip Modal -->
+      <div class="modal" id="skipModal">
+        <div class="modal-content">
+          <h2>Skipping This Turn!</h2>
+          <p>You’ve chosen to skip this turn. Keep going and try again in the next one! 💪</p>
+          <button id="skipCloseBtn">Got It</button>
+        </div>
+      </div>
+
+      <!-- Hints Modal -->
+      <div class="modal" id="hintsModal">
+        <div class="modal-content">
+          <h2>Need a Hint?</h2>
+          <p>Here’s a little help: Pay attention to the order and try different combinations! 🎯</p>
+          <button id="hintsCloseBtn">Understood</button>
+        </div>
+      </div>
+
+      <!-- Rules Modal -->
+      <div class="modal" id="rulesModal">
+        <div class="modal-content">
+          <h2>Game Rules</h2>
+          <p>
+            1. Match the colors in the correct sequence.<br>
+            2. You have a limited number of attempts per level.<br>
+            3. Use hints wisely to decode the correct pattern! 🧩
+          </p>
+          <button id="rulesCloseBtn">Let's Play!</button>
+        </div>
+      </div>
+
+
+<audio id="correctSound" src="audio/correct.mp3" preload="auto"></audio>
+<audio id="incorrectSound" src="audio/incorrect.mp3" preload="auto"></audio>
+      
+<!-- Overlay -->
+<div class="modal-overlay" id="modalOverlay"></div>
+
+<!-- Win Modal -->
+<div class="modal" id="winModal">
+  <div class="modal-content win-modal">
+
+    <!-- Modal Header with "Good Job" -->
+    <h2 class="modal-title">Good Job!</h2>
+    <p class="modal-text">
+      Get ready for the next big thing! You've rocked this Level, 
+      now it's time to dive into the next level! 🚀
+    </p>
+    <!-- Replay and Next Buttons -->
+    <div class="modal-buttons">
+      <div class="button-left">
+        <span id="replayBtn" class="button-text">Replay</span>
+      </div>
+      <div class="button-right">
+        <span id="nextLevelBtn" class="button-text">Next Level</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Lose Modal -->
+<div class="modal" id="tryAgainModal">
+  <div class="modal-content">
+    <h2 class="modal-title" >Oops...</h2>
+    <p class="modal-text">
+      Couldn't crack this level? No worries! Keep pushing, you'll get there in no time! 😊
+    </p> 
+    <div class="modal-buttons">
+      <div class="btn-retry">
+       <span id="retryBtn" class="button-text">Retry Level</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Game Completion Modal -->
+<div class="modal" id="completionModal">
+  <div class="modal-content">
+    <h2>Congratulations!</h2>
+    <p>You successfully completed all levels! 🎉</p>
+    <button id="restartGameBtn">Play Again</button>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
